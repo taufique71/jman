@@ -1,0 +1,69 @@
+{
+    "jobs": [
+        {
+            "id": "job_1",
+            "script": "script_1.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_2",
+            "script": "script_2.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_3",
+            "script": "script_3.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_4",
+            "script": "script_4.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_5",
+            "script": "script_5.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_6",
+            "script": "script_6.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_7",
+            "script": "script_7.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_8",
+            "script": "script_8.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        },
+        {
+            "id": "job_9",
+            "script": "script_9.sh",
+            "path": "~/Codes/widespace-job-manager",
+            "time": null
+        }
+    ],
+    "dependencies": {
+        "job_1": ["job_2", "job_4"],
+        "job_2": ["job_3", "job_7"],
+        "job_3": [],
+        "job_4": ["job_5", "job_6", "job_9"],
+        "job_5": ["job_8", "job_9"],
+        "job_6": ["job_7"],
+        "job_7": ["job_8"],
+        "job_8": [],
+        "job_9": []
+    }
+}
