@@ -25,10 +25,11 @@ class Graph:
         return self.edges
 
     def get_zero_outdegree_vertices(self):
+        print(self.outdegree)
         zero_outdegree_vertices = []
-        for key, value in self.outdegree.items():
-            if value == 0:
-                zero_outdegree_vertices.append(key)
+        for v in self.vertices:
+            if self.outdegree[v] == 0:
+                zero_outdegree_vertices.append(v)
         return zero_outdegree_vertices
 
     def remove_edge(self, edge):
@@ -41,10 +42,15 @@ class Graph:
 
     def remove_vertex(self, vertex):
         try:
+            # print("Before", self.edges)
             self.vertices.remove(vertex)
             for e in self.edges:
+                # print("Checking out edge", e)
+                # print(e[0], e[1], vertex)
                 if e[0] == vertex or e[1] == vertex:
+                    # print("Removing", edge)
                     self.remove_edge(e)
+            # print("After", self.edges)
             return
         except:
             return
