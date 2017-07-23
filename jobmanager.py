@@ -9,25 +9,27 @@ class Manager:
         self.job_threads = {}
         self.job_status = {}
         self.lock = Lock()
-        for key, val in self.config["jobs"].items():
-            self.job_threads[key] = job.Job(key, val, parent=self, stdout=stdout)
-            self.job_status[key] = "unprocessed"
-        return
+        self.initialize_job_threads();
 
-    def start_jobs(self):
+    def start_processing(self):
         zero_outdegree_vertices = self.job_dependency_graph.get_zero_outdegree_vertices()
         for v in zero_outdegree_vertices:
             self.job_status[v] = "processing"
             self.job_threads[v].start()
-        return
 
-    def restart_job(self):
-        # Logic to restart a previously failed job
-        return
+    def stop_processing(self):
+        for key, val in self.job_threads.items():
+            if self.job_threads[key].is_alive():
+                self.job_threads[key].stop()
+                self.job_threads[key].join()
+
+    def initialize_job_threads(self):
+        for key, val in self.config["jobs"].items():
+            self.job_threads[key] = job.Job(key, val, parent=self, stdout=stdout)
+            self.job_status[key] = "unprocessed"
 
     def notify(self, job_key, job_status):
         print(job_key, job_status) 
-        return
 
     def on_job_finish(self, job_key, job_status):
         self.lock.acquire()
