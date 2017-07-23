@@ -5,6 +5,7 @@ from threading import Lock
 class Manager:
     def __init__(self, config, stdin=None, stdout=None, stderr=None):
         self.config = config
+        self.stdout = stdout
         self.job_dependency_graph = graph.Graph(self.config)
         self.job_threads = {}
         self.job_status = {}
@@ -25,8 +26,11 @@ class Manager:
 
     def initialize_job_threads(self):
         for key, val in self.config["jobs"].items():
-            self.job_threads[key] = job.Job(key, val, parent=self, stdout=stdout)
+            self.job_threads[key] = job.Job(key, val, parent=self, stdout=self.stdout)
             self.job_status[key] = "unprocessed"
+
+    def get_job_status(self):
+        return self.job_status
 
     def notify(self, job_key, job_status):
         print(job_key, job_status) 
