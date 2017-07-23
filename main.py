@@ -9,23 +9,23 @@ def main():
         command = input("")
         command = command.lower()
         if command == "exit":
-            print("Stopping running jobs ...")
             manager.stop_processing()
             print("Exiting program ...")
             break;
         elif command == "status":
             job_status = manager.get_job_status()
-            print("########## Current Job Status ##########")
+            print("------------------")
+            print("Current Job Status")
+            print("------------------")
             for key, val in job_status.items():
                 print(key, "-", val)
+            print("------------------")
         elif command == "start":
             manager.start_processing()
-            print(command)
         elif command == "restart":
             manager.stop_processing()
-            manager.re_initialize_job_thread()
+            manager.initialize_job_threads()
             manager.start_processing()
-            print(command)
 
 if __name__ == "__main__":
     main()

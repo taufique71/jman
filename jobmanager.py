@@ -13,18 +13,22 @@ class Manager:
         self.initialize_job_threads();
 
     def start_processing(self):
+        print("Starting job processing")
         zero_outdegree_vertices = self.job_dependency_graph.get_zero_outdegree_vertices()
         for v in zero_outdegree_vertices:
             self.job_status[v] = "processing"
             self.job_threads[v].start()
 
     def stop_processing(self):
+        print("Checking and stopping already running jobs")
         for key, val in self.job_threads.items():
             if self.job_threads[key].is_alive():
                 self.job_threads[key].stop()
                 self.job_threads[key].join()
 
     def initialize_job_threads(self):
+        print("Initializing jobs")
+        self.job_dependency_graph = graph.Graph(self.config)
         for key, val in self.config["jobs"].items():
             self.job_threads[key] = job.Job(key, val, parent=self, stdout=self.stdout)
             self.job_status[key] = "unprocessed"

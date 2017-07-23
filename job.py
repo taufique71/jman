@@ -46,7 +46,7 @@ class Job(threading.Thread):
             parent = psutil.Process(proc.pid)
             children = parent.children(recursive=True)
             for c in children:
-                c.send_signal(signam.SIGTERM)
+                c.send_signal(signal.SIGTERM)
             parent.send_signal(signal.SIGTERM)
 
     def run(self):
