@@ -11,57 +11,57 @@
             "script": "script_2.sh",
             "path": "./test_scripts/",
             "time": null,
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "expected_exec_time": 25,
+            "expected_amount_of_data": 2
         },
         "job_3": {
             "script": "script_3.sh",
             "path": "./test_scripts/",
-            "time": "16:09",
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "time": null,
+            "expected_exec_time": 35,
+            "expected_amount_of_data": 3
         },
         "job_4": {
             "script": "script_4.sh",
             "path": "./test_scripts/",
             "time": null,
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "expected_exec_time": 45,
+            "expected_amount_of_data": 4
         },
         "job_5": {
             "script": "script_5.sh",
             "path": "./test_scripts/",
             "time": null,
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "expected_exec_time": 55,
+            "expected_amount_of_data": 5
         },
         "job_6": {
             "script": "script_6.sh",
             "path": "./test_scripts/",
             "time": null,
-            "expected_exec_time": 15,
+            "expected_exec_time": 65,
             "expected_amount_of_data": 1
         },
         "job_7": {
             "script": "script_7.sh",
             "path": "./test_scripts/",
             "time": null,
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "expected_exec_time": 75,
+            "expected_amount_of_data": 7
         },
         "job_8": {
             "script": "script_8.sh",
             "path": "./test_scripts/",
             "time": null,
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "expected_exec_time": 85,
+            "expected_amount_of_data": 8
         },
         "job_9": {
             "script": "script_9.sh",
             "path": "./test_scripts/",
-            "time": "09:00",
-            "expected_exec_time": 15,
-            "expected_amount_of_data": 1
+            "time": null,
+            "expected_exec_time": 95,
+            "expected_amount_of_data": 9
         }
     },
     "dependencies": {
