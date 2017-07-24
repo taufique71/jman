@@ -20,6 +20,7 @@ That is why it is suggested here.
 
 * `git pull git@github.com:taufique71/widespace-job-manager.git`
 * `cd widespace-job-manager`
+* `mysql < ./sql/widespace_job_manager.sql`
 * `virtualenv -p <path of python executable> ./`
 * `source ./bin/activate`
 * `pip install -r requirement.txt`
@@ -31,6 +32,7 @@ Now you are responsible if pip packages conflict due to version.
 
 * `git pull git@github.com:taufique71/widespace-job-manager.git`
 * `cd widespace-job-manager`
+* `mysql < ./sql/widespace_job_manager.sql`
 * `pip install -r requirement.txt`
 * `python main.py`
 
@@ -44,6 +46,13 @@ The app should be up and running. To learn about how to use it please refer to t
 Both job configuration and database configuration should reside in this file.
 A sample configuration is give with this project.
 Just editing this file would suffice for configuration.
+
+
+
+### Sample Test
+Few shell scripts which runs for varying amount of time is included in the `test_scripts` directory.
+Sample configuration file represents those scripts as job.
+Running the app without configuring anything would run these scripts.
 
 
 ### Usage
