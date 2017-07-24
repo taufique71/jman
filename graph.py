@@ -3,6 +3,7 @@ class Graph:
         self.config = config
         self.vertices = list(config["jobs"].keys())
         self.edges = []
+        self.outdegree = {}
         for key, value in config["dependencies"].items():
             for val in value:
                 self.edges.append( (key, val) )
@@ -14,6 +15,9 @@ class Graph:
 
     def get_edges(self):
         return self.edges
+
+    def get_outdegree(self):
+        return self.outdegree
 
     def get_zero_outdegree_vertices(self):
         zero_outdegree_vertices = []

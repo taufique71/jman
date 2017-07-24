@@ -32,13 +32,13 @@ class JobLogMonitor(threading.Thread):
                                 message = message + " in "
                                 message = message + str(response["exec_time"]) + "s"
                                 self.parent.notify(message)
-                            if response["amount_of_data"] <= v["expected_amount_of_data"]:
+                            elif response["amount_of_data"] <= v["expected_amount_of_data"]:
                                 message = response["job_key"] + " took " + str(response["exec_time"]) + "s"
                                 self.parent.notify(message)
                         elif response["exec_time"] <= v["expected_exec_time"]:
                             if response["amount_of_data"] > v["expected_amount_of_data"]:
                                 message = response["job_key"] + " generated " + str(response["amount_of_data"]) + " data"
                                 self.parent.notify(message)
-                            if response["amount_of_data"] <= v["expected_amount_of_data"]:
+                            elif response["amount_of_data"] <= v["expected_amount_of_data"]:
                                 pass
             time.sleep(self.db_config["poll_interval"])
